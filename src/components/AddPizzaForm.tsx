@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { FC, ChangeEvent, FormEvent, useState } from "react";
 import './style.css';
 
 const initState = {
@@ -11,14 +11,19 @@ const AddPizzaForm: FC = () => {
     const [newPizza, setNewPizza] = 
         useState <{title: string, price: string, img: string}> (initState)
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (e:ChangeEvent<HTMLInputElement>) => {
+        console.log('handle change >>', e.target);
+        
+    }
+
+    const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
         console.log('handle change >>', e.target);
         
     }
 
 
     return (
-        <form>
+        <form onSubmit={handleSubmit}>
             <input
                 name="title"
                 type="text"
