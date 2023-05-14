@@ -17,10 +17,10 @@ const AddPizzaForm: FC = () => {
     }
 
     const handleSubmit = (e:FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
         console.log('handle change >>', e.target);
         
     }
-
 
     return (
         <form onSubmit={handleSubmit}>
