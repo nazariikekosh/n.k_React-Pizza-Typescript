@@ -1,5 +1,5 @@
 import React, { FC, ChangeEvent, FormEvent, useState } from "react";
-import './style.css';
+import './styles.css';
 
 const initState = {
     title: '',
