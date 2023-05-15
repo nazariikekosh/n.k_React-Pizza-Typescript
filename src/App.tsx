@@ -1,17 +1,18 @@
 import React, { FC, useState } from 'react';
 import AddPizzaForm from './components/AddPizzaForm';
+import DisplayPizzas from './components/DisplayPizzas';
 import Pizza from './models/Pizza';
 import './App.css';
 
 
 const App: FC = () => {
-    const [pizzaList, setPizzaList] = useState<Pizza[]>([]);
+    const [pizzasList, setPizzasList] = useState<Pizza[]>([]);
 
     const addPizza = (newPizza: Pizza) => {
-      setPizzaList([...pizzaList, newPizza])
+      setPizzasList([...pizzasList, newPizza])
     }
 
-    console.log('pizzaList >>>>>', pizzaList);
+    console.log('pizzasList >>>>>', pizzasList);
     
   return (
     <div className="App">
@@ -20,6 +21,11 @@ const App: FC = () => {
         <AddPizzaForm
           addPizza={addPizza}  
         />
+
+        <DisplayPizzas
+          pizzasList={pizzasList}
+        />
+
       </div>
     </div>
   );
