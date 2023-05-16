@@ -12,6 +12,10 @@ interface SinglePizzaProps {
 const SinglePizza: FC<SinglePizzaProps> = ({pizza}) => {
     const [edit , setEdit] = useState <boolean>(false);
 
+    const handleToggleEdit = () => {
+        setEdit(!edit);
+    }
+
     return (
         <div className="pizza">
             <img src={`/images/${pizza.img}`} alt={pizza.title}/>
@@ -19,7 +23,7 @@ const SinglePizza: FC<SinglePizzaProps> = ({pizza}) => {
             <span>{pizza.price} ₴</span>
 
             <div className="pizza-controls">
-                <AiFillEdit/>
+                <AiFillEdit onClick={handleToggleEdit}/>
                 <AiFillDelete/>
             </div>
 
