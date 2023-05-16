@@ -12,6 +12,17 @@ const App: FC = () => {
       setPizzasList([...pizzasList, newPizza])
     }
 
+    const updatePizza = (newPizza: Pizza) => {
+      setPizzasList(pizzasList.map((pizza) =>
+       (pizza.id === newPizza.id ? newPizza : pizza)))
+    }
+
+    const deletePizza = ( id: number) => {
+      
+      const newPizzasList = pizzasList.filter(pizza => pizza.id !==id);
+      setPizzasList(newPizzasList);
+    }
+
     console.log('pizzasList >>>>>', pizzasList);
     
   return (
@@ -24,6 +35,8 @@ const App: FC = () => {
 
         <DisplayPizzas
           pizzasList={pizzasList}
+          deletePizza={deletePizza}
+          updatePizza={updatePizza}
         />
 
       </div>
